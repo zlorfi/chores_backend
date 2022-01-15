@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+20.times do
+  Chore.create!({
+                  title: Faker::Hipster.sentence(word_count: 4),
+                  monday: Faker::Boolean.boolean(true_ratio: 0.4),
+                  tuesday: Faker::Boolean.boolean(true_ratio: 0.4),
+                  wednesday: Faker::Boolean.boolean(true_ratio: 0.4),
+                  thursday: Faker::Boolean.boolean(true_ratio: 0.4),
+                  friday: Faker::Boolean.boolean(true_ratio: 0.4),
+                  saturday: Faker::Boolean.boolean(true_ratio: 0.3),
+                  sunday: Faker::Boolean.boolean(true_ratio: 0.3)
+                })
+end
