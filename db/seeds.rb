@@ -10,10 +10,10 @@
                   title: Faker::Hipster.sentence(word_count: 4),
                   monday: Faker::Boolean.boolean(true_ratio: 0.4),
                   tuesday: Faker::Boolean.boolean(true_ratio: 0.4),
-                  wednesday: Faker::Boolean.boolean(true_ratio: 0.4),
+                  wednesday: Faker::Boolean.boolean(true_ratio: 0.1),
                   thursday: Faker::Boolean.boolean(true_ratio: 0.4),
                   friday: Faker::Boolean.boolean(true_ratio: 0.4),
                   saturday: Faker::Boolean.boolean(true_ratio: 0.3),
-                  sunday: Faker::Boolean.boolean(true_ratio: 0.3)
+                  sunday: Faker::Boolean.boolean(true_ratio: 0.2)
                 })
 end
