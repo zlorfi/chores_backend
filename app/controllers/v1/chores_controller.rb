@@ -15,7 +15,7 @@ module V1
 
     # GET /v1/chores/:weekday
     def weekday
-      return json_response([], :not_found) unless Chore::WEEK_DAYS.include?(params[:weekday])
+      return json_response({}, :not_found) unless Chore::WEEK_DAYS.include?(params[:weekday])
 
       chores = Chore.for_a_given_day(params[:weekday])
       json_response(chores)

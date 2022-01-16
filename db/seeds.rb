@@ -1,5 +1,5 @@
-User.destroy_all
 Day.destroy_all
+User.destroy_all
 Chore.destroy_all
 
 User.create!({ user_name: 'Isabella' })

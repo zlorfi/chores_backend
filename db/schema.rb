@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_145218) do
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
-  create_table "manifests", force: :cascade do |t|
+  create_table "manifests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "day_id", null: false
     t.bigint "chore_id", null: false
     t.boolean "done", default: false
