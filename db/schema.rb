@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 2022_01_16_145218) do
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
-  create_table "manifests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "day_id", null: false
     t.bigint "chore_id", null: false
     t.boolean "done", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chore_id"], name: "index_manifests_on_chore_id"
-    t.index ["day_id"], name: "index_manifests_on_day_id"
+    t.index ["chore_id"], name: "index_tasks_on_chore_id"
+    t.index ["day_id"], name: "index_tasks_on_day_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -53,6 +53,6 @@ ActiveRecord::Schema.define(version: 2022_01_16_145218) do
   end
 
   add_foreign_key "days", "users"
-  add_foreign_key "manifests", "chores"
-  add_foreign_key "manifests", "days"
+  add_foreign_key "tasks", "chores"
+  add_foreign_key "tasks", "days"
 end

@@ -1,6 +1,6 @@
 class Day < ApplicationRecord
-  has_many :manifests
-  has_many :chores, through: :manifests
+  has_many :tasks
+  has_many :chores, through: :tasks
   belongs_to :user
 
   before_create :assign_chores

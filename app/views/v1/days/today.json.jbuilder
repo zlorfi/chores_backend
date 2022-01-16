@@ -1,5 +1,5 @@
-json.day @day.chores do |chore|
-  json.title chore.title
-  json.done chore.manifests.first.done
-  json.id chore.manifests.first.id
+json.array! @day.tasks do |task|
+  json.title task.chore.title
+  json.done task.done
+  json.id task.id
 end
