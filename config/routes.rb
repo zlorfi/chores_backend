@@ -6,5 +6,11 @@ Rails.application.routes.draw do
         get ':weekday' => 'chores#weekday'
       end
     end
+
+    resources :days, only: [:show] do
+      collection do
+        get :today
+      end
+    end
   end
 end

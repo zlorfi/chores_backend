@@ -60,6 +60,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    awesome_print (1.9.2)
     bootsnap (1.9.4)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -75,6 +76,8 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    interactive_editor (0.0.11)
+      spoon (>= 0.0.1)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -99,6 +102,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.1.4.4)
@@ -131,6 +136,8 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    spoon (0.0.6)
+      ffi
     spring (4.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -151,13 +158,16 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  awesome_print
   bootsnap (>= 1.4.4)
   byebug
   faker
+  interactive_editor
   listen (~> 3.3)
   pg (~> 1.1)
   pry
   puma (~> 5.0)
+  rack-cors
   rails (~> 6.1.4, >= 6.1.4.1)
   spring
   tzinfo-data
