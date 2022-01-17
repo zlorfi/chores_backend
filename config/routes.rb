@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'day/today' => 'days#today'
+    get 'days/today' => 'days#today'
 
     resources :tasks, only: [:update]
   end
