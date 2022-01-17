@@ -1,5 +1,5 @@
 class Day < ApplicationRecord
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :chores, through: :tasks
   belongs_to :user
 

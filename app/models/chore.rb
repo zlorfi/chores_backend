@@ -1,7 +1,7 @@
 class Chore < ApplicationRecord
   WEEK_DAYS = %w[monday tuesday wednesday thursday friday saturday sunday].freeze
 
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :days, through: :tasks
 
   validates :title, presence: true

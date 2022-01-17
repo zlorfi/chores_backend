@@ -12,5 +12,7 @@ Rails.application.routes.draw do
         get :today
       end
     end
+
+    resources :tasks, only: [:update]
   end
 end

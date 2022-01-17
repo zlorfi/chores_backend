@@ -1,3 +1,4 @@
+Task.destroy_all
 Day.destroy_all
 User.destroy_all
 Chore.destroy_all
