@@ -7,11 +7,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :days, only: [:show] do
-      collection do
-        get :today
-      end
-    end
+    get 'day/today' => 'days#today'
 
     resources :tasks, only: [:update]
   end
