@@ -1,5 +1,7 @@
 module V1
   class TasksController < ApplicationController
+    before_action :authenticate_user!
+
     # PATCH /v1/tasks/:id
     def update
       task = Task.find(params[:id])
