@@ -40,4 +40,4 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 append :linked_files, 'config/master.key'
 
-Rake::Task['deploy:assets:precompile'].clear_actions
+Rake::Task['deploy:assets:precompile', 'deploy:assets:backup_manifest'].clear_actions
