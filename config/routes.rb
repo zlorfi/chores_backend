@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'devise/sessions#create'
   end
 
-  namespace :v1 do
-    resources :chores, only: [:index], defaults: { format: :json } do
+  namespace :v1, defaults: { format: :json } do
+    resources :chores, only: [:index] do
       collection do
         get :today
         get ':weekday' => 'chores#weekday'
@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 
     get 'days/today' => 'days#today'
 
-    resources :tasks, only: [:update], defaults: { format: :json }
+    resources :tasks, only: [:update]
   end
 end

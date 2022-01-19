@@ -1,5 +1,7 @@
 module V1
   class DaysController < ApplicationController
+    before_action :authenticate_user!
+
     # GET /v1/days/today
     def today
       return json_response({}, :not_found) if params[:created_by].blank?
