@@ -19,3 +19,5 @@ production:
   database: chores_backend_production
   username: postgres
   password: <%= Rails.application.credentials.postgres.dig(:password) %>
+  host: 127.0.0.1
+  port: 5432
