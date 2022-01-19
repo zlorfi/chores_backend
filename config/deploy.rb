@@ -42,3 +42,6 @@ append :linked_files, 'config/master.key'
 
 Rake::Task['deploy:assets:precompile'].clear_actions
 Rake::Task['deploy:assets:backup_manifest'].clear_actions
+
+# restart the old way
+set :passenger_restart_with_touch, true
