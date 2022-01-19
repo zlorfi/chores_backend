@@ -39,3 +39,5 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # set :ssh_options, verify_host_key: :secure
 
 append :linked_files, 'config/master.key'
+
+Rake::Task['deploy:assets:precompile'].clear_actions
