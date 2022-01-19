@@ -29,6 +29,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'awesome_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capistrano', '3.11.2'
+  gem 'capistrano-passenger', '0.2.0'
+  gem 'capistrano-rails', '1.4.0'
   gem 'faker'
   gem 'interactive_editor'
   gem 'pry'
