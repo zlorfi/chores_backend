@@ -9,5 +9,11 @@ module V1
                       user: current_user.id
                     })
     end
+
+    private
+
+    def respond_to_on_destroy
+      head :no_content
+    end
   end
 end
