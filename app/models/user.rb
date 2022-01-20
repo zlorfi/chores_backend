@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :trackable
 
   has_many :days, dependent: :destroy
-
-  validates :user_name, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
 end

@@ -1,5 +1,7 @@
 module V1
   class ChoresController < ApplicationController
+    before_action :authenticate_user!
+
     # GET /v1/chores
     def index
       chores = Chore.all
