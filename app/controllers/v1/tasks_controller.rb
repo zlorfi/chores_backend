@@ -9,6 +9,13 @@ module V1
       json_response(nil, :no_content)
     end
 
+    # PATCH /v1/tasks/:task_id/toggle
+    def toggle
+      task = Task.find(params[:task_id])
+      task.toggle!(:done)
+      json_response(nil, :no_content)
+    end
+
     private
 
     def task_params

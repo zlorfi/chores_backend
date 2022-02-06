@@ -6,7 +6,9 @@ module V1
       sign_in(resource_name, resource)
       json_response({
                       token: ::JwtWrapper.encode(user_id: resource.id),
-                      user: current_user.id
+                      user: current_user.id,
+                      canEdit: current_user.can_edit,
+                      name: current_user.name
                     })
     end
 
