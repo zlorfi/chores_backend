@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
 
     get 'days/today' => 'days#today'
+    get 'days/summary' => 'days#summary'
 
     resources :tasks, only: [:update] do
       get 'toggle' => 'tasks#toggle'

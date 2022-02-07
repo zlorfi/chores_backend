@@ -4,10 +4,12 @@ module V1
 
     # GET /v1/days/today
     def today
-      return json_response({}, :not_found) if params[:created_by].blank?
-      return json_response({}, :not_found) if User.find_by(id: params[:created_by]).blank?
+      @day = Day.find_or_create_by(user_id: current_user.id, created_at: Date.today)
+    end
 
-      @day = Day.find_or_create_by(user_id: params[:created_by], created_at: Date.today)
+    # GET /v1/days/summary
+    def summary
+      json_response(Day.summary_last_week(current_user))
     end
   end
 end
