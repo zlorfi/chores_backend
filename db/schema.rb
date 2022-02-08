@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_06_111214) do
+ActiveRecord::Schema.define(version: 2022_01_19_114353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "chores", force: :cascade do |t|
+  create_table "chores", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "title"
     t.boolean "monday", default: false
     t.boolean "tuesday", default: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_02_06_111214) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "days", force: :cascade do |t|
+  create_table "days", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.date "created_at"
     t.datetime "updated_at"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_111214) do
   end
 
   create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "day_id", null: false
-    t.bigint "chore_id", null: false
+    t.uuid "day_id", null: false
+    t.uuid "chore_id", null: false
     t.boolean "done", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_111214) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "can_edit", default: false
+    t.string "name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -59,8 +61,6 @@ ActiveRecord::Schema.define(version: 2022_02_06_111214) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.boolean "can_edit", default: false
-    t.string "name", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

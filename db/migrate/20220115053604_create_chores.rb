@@ -1,6 +1,6 @@
 class CreateChores < ActiveRecord::Migration[6.1]
   def change
-    create_table :chores do |t|
+    create_table :chores, id: :uuid do |t|
       t.text :title
       t.boolean :monday, default: false
       t.boolean :tuesday, default: false

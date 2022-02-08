@@ -3,7 +3,7 @@ Day.destroy_all
 User.destroy_all
 Chore.destroy_all
 
-User.create!({ user_name: 'Isabella' })
+User.create!({ name: 'Michi', email: 'zlorfi@gmail.com', can_edit: true })
 
 20.times do
   Chore.create!({
