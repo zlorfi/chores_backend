@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :v1, defaults: { format: :json } do
-    resources :chores, only: [:index] do
+    resources :chores, only: %i[index update] do
       collection do
         get :today
         get ':weekday' => 'chores#weekday'

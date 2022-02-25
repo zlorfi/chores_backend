@@ -8,6 +8,15 @@ module V1
       json_response(chores)
     end
 
+    # PATCH /v1/chores/:id
+    def update
+      return json_response({ error: 'Not allowed' }, :unauthorized) unless current_user.can_edit
+
+      chore = Chore.find(params[:id])
+      chore.update!(attributes: chore_params.to_h)
+      json_response(chore)
+    end
+
     # GET /v1/chores/today
     def today
       today = Date.today.strftime('%A').downcase
@@ -21,6 +30,12 @@ module V1
 
       chores = Chore.for_a_given_day(params[:weekday])
       json_response(chores)
+    end
+
+    private
+
+    def chore_params
+      params.permit(:title, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday)
     end
   end
 end
